@@ -24,8 +24,8 @@ class Departments_Meta(Resource):
 
 class Departmental_Salary(Resource):
     def get(self, department_name):  # param is pulled from url string
-    	conn = e.connect()
-    	query = conn.execute("select * from salaries where Department='%s'"%department_name.upper())
+        conn = e.connect()
+        query = conn.execute("select * from salaries where Department='%s'"%department_name.upper())
         result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
         return result
 
